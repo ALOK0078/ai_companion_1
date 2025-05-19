@@ -27,7 +27,7 @@ export const ImageUpload = ({
     <div className="space-y-4 w-full flex flex-col justify-center items-center">
       <CldUploadButton
         onUpload={(result: any) => onChange(result.info.secure_url)}
-        uploadPreset="erdhba9i"
+        uploadPreset="aicomapnion"
         options={{ maxFiles: 1 }}
       >
         <div className="p-4 border-4 border-dashed border-primary/10 rounded-lg hover:opacity-75 transition flex flex-col space-y-2 items-center justify-center">

@@ -7,7 +7,7 @@ import { Poppins } from "next/font/google";
 import { UserButton } from "@clerk/nextjs";
 
 import { cn } from "@/lib/utils";
-import { useProModal } from "@/hooks/use-pro-modal";
+// import { useProModal } from "@/hooks/use-pro-modal";
 
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
@@ -18,17 +18,17 @@ const font = Poppins({
   subsets: ["latin"]
 });
 
-interface NavbarProps {
-  isPro: boolean;
-}
+// interface NavbarProps {
+//   isPro: boolean;
+// }
 
-export default function Navbar({ isPro }: NavbarProps) {
+export default function Navbar() {
   // const proModal = useProModal();
 
   return (
     <div className="fixed w-full z-50 flex justify-between items-center py-2 px-4 h-16 border-b border-primary/10 bg-secondary">
       <div className="flex items-center">
-        <MobileSidebar isPro={isPro} />
+        <MobileSidebar/>
         <Link href="/">
           <h1
             className={cn(
@@ -41,12 +41,13 @@ export default function Navbar({ isPro }: NavbarProps) {
         </Link>
       </div>
       <div className="flex items-center gap-x-3">
-        {!isPro && (
-          <Button size="sm" variant="premium">
+       
+          <Button  size="sm" variant="premium"> 
+          {/* //onClick={proModal.onOpen}// */}
             Upgrade
             <Sparkles className="h-4 w-4 fill-white text-white ml-2" />
           </Button>
-        )}
+        
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
       </div>

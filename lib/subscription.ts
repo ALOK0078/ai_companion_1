@@ -1,32 +1,34 @@
-import { auth } from "@clerk/nextjs";
+// import { auth } from "@clerk/nextjs";
 
-import prismadb from "@/lib/prismadb";
+// import prismadb from "@/lib/prismadb";
 
-const DAY_IN_MS = 86_400_000;
+// const DAY_IN_MS = 86_400_000;
 
-export const checkSubscription = async () => {
-  const { userId } = auth();
+// export const checkSubscription = async () => {
+//   const { userId } = auth();
 
-  if (!userId) return false;
+//   if (!userId) return false;
 
-  const userSubscription = await prismadb.userSubscription.findUnique({
-    where: {
-      userId
-    },
-    select: {
-      stripeCurrentPeriodEnd: true,
-      stripeCustomerId: true,
-      stripePriceId: true,
-      stripeSubscriptionId: true
-    }
-  });
+//   const userSubscription = await prismadb.userSubscription.findUnique({
+//     where: {
+//       userId
+//     },
+//     select: {
+//       stripeCurrentPeriodEnd: true,
+//       stripeCustomerId: true,
+//       stripePriceId: true,
+//       stripeSubscriptionId: true
+//     }
+//   });
 
-  if (!userSubscription) return false;
+//   if (!userSubscription) return true;//making it true
 
-  const isValid =
-    userSubscription.stripePriceId &&
-    userSubscription.stripeCurrentPeriodEnd?.getTime()! + DAY_IN_MS >
-      Date.now();
+//   const isValid =true;
+//   return isValid;//commented the lower code and added this two lines
+//   // const isValid =
+//   //   userSubscription.stripePriceId &&
+//   //   userSubscription.stripeCurrentPeriodEnd?.getTime()! + DAY_IN_MS >
+//   //     Date.now();
 
-  return !!isValid;
-};
+//   // return !!isValid;
+// };
