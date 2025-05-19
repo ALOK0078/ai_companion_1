@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 // import ProModal from "@/components/pro-modal";
 
 import { cn } from "@/lib/utils";
+import ProModal from "@/components/pro-modal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,7 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body className={cn("bg-secondary", inter.className)}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {/* <ProModal /> */}
+            <ProModal />
             {children}
             <Toaster />
           </ThemeProvider>
